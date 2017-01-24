@@ -1,0 +1,15 @@
+{# (couche 3) #}
+
+{% extends "PWQCMBundle::layout.html.twig" %}
+
+{% block title %}
+	Ajouter des QCM - {{ parent() }}
+{% endblock %}
+
+{% block title2 %}Enregistrement des nouvelles questions.{% endblock %}
+
+{% block body %}
+	
+	{{ form(form) }}
+	
+{% endblock %}

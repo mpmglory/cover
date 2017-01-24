@@ -1,0 +1,38 @@
+{# (couche 3) #}
+
+{% extends "PWQCMBundle::layout.html.twig" %}
+
+{% block title %}
+	Affichage des QCM - {{ parent() }}
+{% endblock %}
+
+{% block title2 %}Affichage des QCM{% endblock %}
+
+{% block body %}
+
+<div id="content" class="col-md-9">
+	<div class="well">
+	<ul>
+		{% for qcm in listQcm %}
+			<li> 
+				<h4> Enonce: {{ qcm.enonce }} </h4> </br>
+				<em>Cree le {{ qcm.date|date('d/m/Y') }} </br></em>
+				<b>Proposition A:</b> {{ qcm.propoA }} </br>
+				<b>Proposition B:</b> {{ qcm.propoB }} </br>
+				<b>Proposition C:</b> {{ qcm.propoC }} </br>
+				<b>Proposition D:</b> {{ qcm.propoD }} </br>
+				<b>Proposition E:</b> {{ qcm.propoE }} </br>
+				<b>Reponse: {{ qcm.reponse }} </b></br>
+				<b>Status:</b>{% if qcm.validated == 0 %} Pas encore valide.
+							{% else %} Valide.{% endif %}
+				</br><hr>
+			</li>
+		{% else %}
+		</ul>
+			<li>Pas encore de questions</li>
+		{% endfor %}
+	</div>
+</div>
+	
+	
+{% endblock %}

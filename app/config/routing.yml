@@ -1,0 +1,3 @@
+pwqcm:
+    resource: "@PWQCMBundle/Resources/config/routing.yml"
+    prefix:   /

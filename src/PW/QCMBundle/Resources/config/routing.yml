@@ -1,0 +1,19 @@
+pw_qcm_homepage:
+    path:     /qcm
+    defaults:
+        _controller: PWQCMBundle:QCM:index
+
+pw_qcm_add:
+    path:     /qcm/add
+    defaults:
+        _controller: PWQCMBundle:QCM:add
+
+pw_qcm_view:
+    path:     /qcm/view
+    defaults:
+        _controller: PWQCMBundle:QCM:view
+
+pw_qcm_edit:
+    path:     /qcm/edit
+    defaults:
+        _controller: PWQCMBundle:QCM:edit
