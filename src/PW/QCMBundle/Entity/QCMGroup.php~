@@ -163,27 +163,4 @@ class QCMGroup
     {
         return $this->date;
     }
-
-    /**
-     * Set matiere
-     *
-     * @param \PW\QCMBundle\Entity\Matiere $matiere
-     * @return QCMGroup
-     */
-    public function setMatiere(\PW\QCMBundle\Entity\Matiere $matiere)
-    {
-        $this->matiere = $matiere;
-
-        return $this;
-    }
-
-    /**
-     * Get matiere
-     *
-     * @return \PW\QCMBundle\Entity\Matiere 
-     */
-    public function getMatiere()
-    {
-        return $this->matiere;
-    }
 }

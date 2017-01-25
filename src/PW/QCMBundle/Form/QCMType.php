@@ -13,16 +13,17 @@ class QCMType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('enonce', 'textarea')
-                ->add('propoA', 'text')
-                ->add('propoB', 'text')
-                ->add('propoC', 'text')
-                ->add('propoD', 'text', array('required' => false))
-                ->add('propoE', 'text', array('required' => false))
-                ->add('reponse', 'text')
+        $builder->add('enonce',     'text')
+                ->add('propoA',     'text')
+                ->add('propoB',     'text')
+                ->add('propoC',     'text')
+                ->add('propoD',     'text')
+                ->add('propoE',     'text')
+                ->add('reponse',    'text')
                 ->add('explication', 'textarea')
-                ->add('urlPhoto', 'text', array('required' => false))
-                ->add('save', 'submit')         ;
+                ->add('urlPhoto',   'text')
+                ->add('submit',     'submit')
+                ;
     }
     
     /**

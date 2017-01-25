@@ -66,14 +66,14 @@ class QCM
     /**
      * @var string
      *
-     * @ORM\Column(name="propoD", type="string", length=255)
+     * @ORM\Column(name="propoD", type="string", length=255, nullable=true)
      */
     private $propoD;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="propoE", type="string", length=255)
+     * @ORM\Column(name="propoE", type="string", length=255, nullable=true)
      */
     private $propoE;
 
@@ -97,6 +97,19 @@ class QCM
      * @ORM\Column(name="urlPhoto", type="string", length=255, nullable=true)
      */
     private $urlPhoto;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="PW\QCMBundle\Entity\User")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $user;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="PW\QCMBundle\Entity\QCMGroup")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $qcmgroup;
+
 
     public function __construct()
     {
@@ -343,5 +356,28 @@ class QCM
     public function getUrlPhoto()
     {
         return $this->urlPhoto;
+    }
+
+    /**
+     * Set reponse
+     *
+     * @param string $reponse
+     * @return QCM
+     */
+    public function setReponse($reponse)
+    {
+        $this->reponse = $reponse;
+
+        return $this;
+    }
+
+    /**
+     * Get reponse
+     *
+     * @return string 
+     */
+    public function getReponse()
+    {
+        return $this->reponse;
     }
 }

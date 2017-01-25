@@ -98,6 +98,19 @@ class QCM
      */
     private $urlPhoto;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="PW\QCMBundle\Entity\User")
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private $user;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="PW\QCMBundle\Entity\QCMGroup")
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private $qcmgroup;
+
+
     public function __construct()
     {
         $this->date = new \Datetime();
@@ -366,5 +379,51 @@ class QCM
     public function getReponse()
     {
         return $this->reponse;
+    }
+
+    /**
+     * Set user
+     *
+     * @param \PW\QCMBundle\Entity\User $user
+     * @return QCM
+     */
+    public function setUser(\PW\QCMBundle\Entity\User $user)
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return \PW\QCMBundle\Entity\User 
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
+
+    /**
+     * Set qcmgroup
+     *
+     * @param \PW\QCMBundle\Entity\QCMGroup $qcmgroup
+     * @return QCM
+     */
+    public function setQcmgroup(\PW\QCMBundle\Entity\QCMGroup $qcmgroup)
+    {
+        $this->qcmgroup = $qcmgroup;
+
+        return $this;
+    }
+
+    /**
+     * Get qcmgroup
+     *
+     * @return \PW\QCMBundle\Entity\QCMGroup 
+     */
+    public function getQcmgroup()
+    {
+        return $this->qcmgroup;
     }
 }

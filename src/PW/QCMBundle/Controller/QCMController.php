@@ -15,38 +15,47 @@ use PW\QCMBundle\Form\QCMType;
 
 class QCMController extends Controller
 {
-    public function indexAction()
-    {
-        return $this->render('PWQCMBundle:QCM:index.html.twig');
+    public function indexAction(){
+
+        $listQcm = $this->getDoctrine()->getManager()
+                    ->getRepository('PWQCMBundle:QCM')
+                    ->findAll();
+
+        return $this->render('PWQCMBundle:QCM:index.html.twig', array(
+            'listQcm' => $listQcm
+            ));
     }
 
-    public function viewAction()
-    {
+    public function viewAction($id){
 
-    	$listQcm = $this->getDoctrine()->getManager()
+    	$qcm = $this->getDoctrine()->getManager()
     				->getRepository('PWQCMBundle:QCM')
-    				->findAll();
+    				->find($id);
 
         return $this->render('PWQCMBundle:QCM:view.html.twig', array(
-        	'listQcm' => $listQcm
+        	'qcm' => $qcm
         	));
     }
 
-    public function addAction(Request $request)
-    {
+    public function validerAction($id){
+
+        $em = $this->getDoctrine()->getManager();
+        $qcm  = $em->getRepository('PWQCMBundle:QCM')->find($id);
+
+        $qcm->setValidated(true);
+        $em->persist($qcm);
+        $em->flush();
+
+        return $this->render('PWQCMBundle:QCM:view.html.twig', array(
+            'qcm' => $qcm
+            ));
+    }
+
+    public function addAction(Request $request){
+
     	$em = $this->getDoctrine()->getManager();
 
     	$qcm = new QCM();
-
-    	/*$qcm->setEnonce("Qu'est ce que l'informatique?");
-    	$qcm->setPropoA("Objet d'etude de la philosophie.");
-    	$qcm->setPropoB("Science de l'etude de l'information.");
-    	$qcm->setPropoC("Caratere technologique d'une entreprise.");
-    	$qcm->setPropoD("Science du traitement automatique de l'information.");
-    	$qcm->setPropoE("Aucune de ces reponces n'est correcte.");
-    	$qcm->setReponse($qcm->getPropoD());
-    	$qcm->setExplication("");
-    	$qcm->setUrlPhoto("plata.jpg");*/
 
     	$form = $this->get('form.factory')->create(new QCMType(), $qcm);
 			
@@ -62,13 +71,35 @@ class QCMController extends Controller
 			return $this->redirectToRoute('pw_qcm_add');
 		}
 
-        return $this->render('PWQCMBundle:QCM:add.html.twig', array(
+        return $this->render('PWQCMBundle:QCM:add_qcm.html.twig', array(
         	'form' => $form->createView()
         	));
     }
 
-    public function editAction()
-    {
-        return $this->render('PWQCMBundle:QCM:edit.html.twig');
+    public function editAction($id, Request $request){
+
+        $qcm = $this->getDoctrine()->getManager()
+                    ->getRepository('PWQCMBundle:QCM')
+                    ->find($id);
+
+        $form = $this->get('form.factory')->create(new QCMType(), $qcm);
+            
+        if($request->isMethod('POST') && $form->handleRequest($request)->isValid()){
+
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($qcm);
+            $em->flush();
+
+            $request->getSession()->getFlashBag()
+                    ->add('notice', 'Annonce bien enregistree.');
+        
+            return $this->redirectToRoute('pw_qcm_edit', array(
+                'id' => $id
+                ));
+        }
+
+        return $this->render('PWQCMBundle:QCM:add_qcm.html.twig', array(
+            'form' => $form->createView()
+            ));
     }
 }

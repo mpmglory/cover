@@ -10,7 +10,17 @@
 
 {% block body %}
 
-	
-	Welcome to the body part
+	<ul>
+	{% for qcm in listQcm %}
+		<li>
+			<a href="{{ path('pw_qcm_view', {'id': qcm.id}) }}">
+				{{ qcm.enonce }}
+			</a>
+			le {{ qcm.date|date('d/m/Y') }}
+		</li>
+	{% else %}
+		<li>Pas encore de qcm</li>
+	{% endfor %}
+	</ul>
 	
 {% endblock %}

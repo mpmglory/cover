@@ -9,11 +9,44 @@ pw_qcm_add:
         _controller: PWQCMBundle:QCM:add
 
 pw_qcm_view:
-    path:     /qcm/view
+    path:     /qcm/view/{id}
     defaults:
         _controller: PWQCMBundle:QCM:view
+    requirements:
+        id: \d+
 
 pw_qcm_edit:
-    path:     /qcm/edit
+    path:     /qcm/edit/{id}
     defaults:
         _controller: PWQCMBundle:QCM:edit
+    requirements:
+        id: \d+
+
+pw_qcm_valider:
+    path:     /qcm/valider/{id}
+    defaults:
+        _controller: PWQCMBundle:QCM:valider
+    requirements:
+        id: \d+
+
+pw_qcm_delete:
+    path:     /qcm/delete/{id}
+    defaults:
+        _controller: PWQCMBundle:QCM:delete
+    requirements:
+        id: \d+
+
+pw_qcm_add_qcmgroup:
+    path:     /qcmgroup/add
+    defaults:
+        _controller: PWQCMBundle:QCM:add_qcmgroup
+
+pw_qcm_view_qcmgroup:
+    path:     /qcmgroup/view
+    defaults:
+        _controller: PWQCMBundle:QCM:view_qcmgroup
+
+pw_qcm_edit_qcmgroup:
+    path:     /qcmgroup/edit
+    defaults:
+        _controller: PWQCMBundle:QCM:edit_qcmgroup

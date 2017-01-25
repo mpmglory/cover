@@ -10,29 +10,41 @@
 
 {% block body %}
 
-<div id="content" class="col-md-9">
 	<div class="well">
-	<ul>
-		{% for qcm in listQcm %}
-			<li> 
-				<h4> Enonce: {{ qcm.enonce }} </h4> </br>
-				<em>Cree le {{ qcm.date|date('d/m/Y') }} </br></em>
-				<b>Proposition A:</b> {{ qcm.propoA }} </br>
-				<b>Proposition B:</b> {{ qcm.propoB }} </br>
-				<b>Proposition C:</b> {{ qcm.propoC }} </br>
-				<b>Proposition D:</b> {{ qcm.propoD }} </br>
-				<b>Proposition E:</b> {{ qcm.propoE }} </br>
-				<b>Reponse: {{ qcm.reponse }} </b></br>
-				<b>Status:</b>{% if qcm.validated == 0 %} Pas encore valide.
+		<h4> Enonce: {{ qcm.enonce }} </h4> </br>
+		<em>Cree le {{ qcm.date|date('d/m/Y') }} </br></em>
+		<b>Proposition A:</b> {{ qcm.propoA }} </br>
+		<b>Proposition B:</b> {{ qcm.propoB }} </br>
+		<b>Proposition C:</b> {{ qcm.propoC }} </br>
+		<b>Proposition D:</b> {{ qcm.propoD }} </br>
+		<b>Proposition E:</b> {{ qcm.propoE }} </br>
+		<b>Reponse: {{ qcm.reponse }} </b></br>
+		<b>Status:</b>{% if qcm.validated == 0 %} Pas encore valide.
 							{% else %} Valide.{% endif %}
-				</br><hr>
-			</li>
-		{% else %}
-		</ul>
-			<li>Pas encore de questions</li>
-		{% endfor %}
+		</br><hr>
 	</div>
-</div>
-	
-	
+	<p>
+		{% if qcm.validated == false %}
+			<a href="{{ path('pw_qcm_valider', {'id': qcm.id}) }}" class="btn btn-success">
+				<i class="glyphicon glyphicon-ok"></i>
+				Valider le qcm
+			</a>
+		{% endif %}
+
+		<a href="{{ path('pw_qcm_homepage') }}" class="btn btn-default">
+			<i class="glyphicon glyphicon-chevron-left"></i>
+			Retour a la liste des qcm
+		</a>
+
+		<a href="{{ path('pw_qcm_edit', {'id': qcm.id}) }}" class="btn btn-default">
+			<i class="glyphicon glyphicon-edit"></i>
+			Modifier le qcm
+		</a>
+		
+		<a href="{{ path('pw_qcm_delete', {'id': qcm.id}) }}" class="btn btn-danger">
+			<i class="glyphicon glyphicon-trash"></i>
+			Supprimer le qcm
+		</a>
+	</p>
+
 {% endblock %}

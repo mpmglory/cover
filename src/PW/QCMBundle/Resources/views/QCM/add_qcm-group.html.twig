@@ -1,0 +1,15 @@
+{# (couche 3) #}
+
+{% extends "PWQCMBundle::layout.html.twig" %}
+
+{% block title %}
+	Ajouter des Groupes de QCM - {{ parent() }}
+{% endblock %}
+
+{% block title2 %}Enregistrement des nouveaux groupes pour QCM.{% endblock %}
+
+{% block body %}
+	
+	{{ form(form) }}
+	
+{% endblock %}
