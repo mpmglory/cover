@@ -66,14 +66,14 @@ class QCM
     /**
      * @var string
      *
-     * @ORM\Column(name="propoD", type="string", length=255)
+     * @ORM\Column(name="propoD", type="string", length=255, nullable=true)
      */
     private $propoD;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="propoE", type="string", length=255)
+     * @ORM\Column(name="propoE", type="string", length=255, nullable=true)
      */
     private $propoE;
 
