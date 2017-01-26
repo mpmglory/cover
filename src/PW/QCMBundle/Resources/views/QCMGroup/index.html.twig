@@ -1,0 +1,26 @@
+{# (couche 3) #}
+
+{% extends "PWQCMBundle::layout.html.twig" %}
+
+{% block title %}
+	Accueil - {{ parent() }}
+{% endblock %}
+
+{% block title2 %}Gestion des Groupes de QCM{% endblock %}
+
+{% block body %}
+	<h3>Tous les Groupes de QCM</h3>
+	<ul>
+	{% for qcmgroup in listQcmgroup %}
+		<li>
+			<a href="{{ path('pw_qcm_view_qcmgroup', {'id': qcmgroup.id}) }}">
+				{{ qcmgroup.titre }}
+			</a>
+			le {{ qcmgroup.date|date('d/m/Y') }}
+		</li>
+	{% else %}
+		<li>Pas encore de qcm</li>
+	{% endfor %}
+	</ul>
+	
+{% endblock %}

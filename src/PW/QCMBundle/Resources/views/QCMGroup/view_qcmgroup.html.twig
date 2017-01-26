@@ -1,0 +1,37 @@
+{# (couche 3) #}
+
+{% extends "PWQCMBundle::layout.html.twig" %}
+
+{% block title %}
+	Affichage des QCM - {{ parent() }}
+{% endblock %}
+
+{% block title2 %}Affichage des Groupes de QCM{% endblock %}
+
+{% block body %}
+
+	<div class="well">
+		<h4> Titre: {{ qcmgroup.titre }} </h4> </br>
+		<em>Cree le {{ qcmgroup.date|date('d/m/Y') }} </br></em>
+		<b>Description:</b> {{ qcmgroup.description }} </br>
+		</br><hr>
+	</div>
+	<p>
+
+		<a href="{{ path('pw_qcm_home_qcmgroup') }}" class="btn btn-default">
+			<i class="glyphicon glyphicon-chevron-left"></i>
+			Retour a la liste des Groupes de qcm
+		</a>
+
+		<a href="{{ path('pw_qcm_edit_qcmgroup', {'id': qcmgroup.id}) }}" class="btn btn-default">
+			<i class="glyphicon glyphicon-edit"></i>
+			Modifier le Groupe de qcm
+		</a>
+		
+		<a href="{{ path('pw_qcm_delete_qcmgroup', {'id': qcmgroup.id}) }}" class="btn btn-danger">
+			<i class="glyphicon glyphicon-trash"></i>
+			Supprimer le Groupe qcm
+		</a>
+	</p>
+
+{% endblock %}

@@ -6,11 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\RedirectResponse;
-use PW\QCMBundle\Entity\Concours;
-use PW\QCMBundle\Entity\Matiere;
 use PW\QCMBundle\Entity\QCM;
-use PW\QCMBundle\Entity\QCMGroup;
-use PW\QCMBundle\Entity\User;
 use PW\QCMBundle\Form\QCMType;
 
 class QCMController extends Controller
@@ -32,7 +28,7 @@ class QCMController extends Controller
     				->getRepository('PWQCMBundle:QCM')
     				->find($id);
 
-        return $this->render('PWQCMBundle:QCM:view.html.twig', array(
+        return $this->render('PWQCMBundle:QCM:view_qcm.html.twig', array(
         	'qcm' => $qcm
         	));
     }
@@ -46,7 +42,7 @@ class QCMController extends Controller
         $em->persist($qcm);
         $em->flush();
 
-        return $this->render('PWQCMBundle:QCM:view.html.twig', array(
+        return $this->render('PWQCMBundle:QCM:view_qcm.html.twig', array(
             'qcm' => $qcm
             ));
     }
@@ -93,7 +89,7 @@ class QCMController extends Controller
             $request->getSession()->getFlashBag()
                     ->add('notice', 'Annonce bien enregistree.');
         
-            return $this->redirectToRoute('pw_qcm_edit', array(
+            return $this->redirectToRoute('pw_qcm_view', array(
                 'id' => $id
                 ));
         }

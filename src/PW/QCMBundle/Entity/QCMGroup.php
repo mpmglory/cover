@@ -3,6 +3,7 @@
 namespace PW\QCMBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use PW\QCMBundle\Entity\Matiere;
 
 /**
  * QCMGroup
@@ -51,7 +52,7 @@ class QCMGroup
 
     /**
      * @ORM\ManyToOne(targetEntity="PW\QCMBundle\Entity\Matiere")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=true)
      */
     private $matiere;
 

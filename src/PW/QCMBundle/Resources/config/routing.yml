@@ -36,17 +36,33 @@ pw_qcm_delete:
     requirements:
         id: \d+
 
+pw_qcm_home_qcmgroup:
+    path:     /qcmgroup
+    defaults:
+        _controller: PWQCMBundle:QCMGroup:index
+
 pw_qcm_add_qcmgroup:
     path:     /qcmgroup/add
     defaults:
-        _controller: PWQCMBundle:QCM:add_qcmgroup
+        _controller: PWQCMBundle:QCMGroup:add
 
 pw_qcm_view_qcmgroup:
-    path:     /qcmgroup/view
+    path:     /qcmgroup/view/{id}
     defaults:
-        _controller: PWQCMBundle:QCM:view_qcmgroup
+        _controller: PWQCMBundle:QCMGroup:view
+    requirements:
+        id: \d+
 
 pw_qcm_edit_qcmgroup:
-    path:     /qcmgroup/edit
+    path:     /qcmgroup/edit/{id}
     defaults:
-        _controller: PWQCMBundle:QCM:edit_qcmgroup
+        _controller: PWQCMBundle:QCMGroup:edit
+    requirements:
+        id: \d+
+
+pw_qcm_delete_qcmgroup:
+    path:     /qcmgroup/delete/{id}
+    defaults:
+        _controller: PWQCMBundle:QCMGroup:delete
+    requirements:
+        id: \d+
