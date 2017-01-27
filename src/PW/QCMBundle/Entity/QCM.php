@@ -12,6 +12,7 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class QCM
 {
+
     /**
      * @var int
      *
@@ -45,35 +46,35 @@ class QCM
     /**
      * @var string
      *
-     * @ORM\Column(name="propoA", type="string", length=255)
+     * @ORM\Column(name="propoA", type="text")
      */
     private $propoA;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="propoB", type="string", length=255)
+     * @ORM\Column(name="propoB", type="text")
      */
     private $propoB;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="propoC", type="string", length=255)
+     * @ORM\Column(name="propoC", type="text")
      */
     private $propoC;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="propoD", type="string", length=255, nullable=true)
+     * @ORM\Column(name="propoD", type="text", nullable=true)
      */
     private $propoD;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="propoE", type="string", length=255, nullable=true)
+     * @ORM\Column(name="propoE", type="text", nullable=true)
      */
     private $propoE;
 
@@ -92,11 +93,10 @@ class QCM
     private $explication;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="urlPhoto", type="string", length=255, nullable=true)
+     * @ORM\ManyToOne(targetEntity="PW\QCMBundle\Entity\Image", cascade={"persist"})
+     * @ORM\JoinColumn(nullable=true)
      */
-    private $urlPhoto;
+    private $image;
 
     /**
      * @ORM\ManyToOne(targetEntity="PW\QCMBundle\Entity\User")
@@ -425,5 +425,28 @@ class QCM
     public function getQcmgroup()
     {
         return $this->qcmgroup;
+    }
+
+    /**
+     * Set image
+     *
+     * @param \PW\QCMBundle\Entity\Image $image
+     * @return QCM
+     */
+    public function setImage(\PW\QCMBundle\Entity\Image $image = null)
+    {
+        $this->image = $image;
+
+        return $this;
+    }
+
+    /**
+     * Get image
+     *
+     * @return \PW\QCMBundle\Entity\Image 
+     */
+    public function getImage()
+    {
+        return $this->image;
     }
 }

@@ -3,6 +3,7 @@
 namespace PW\QCMBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use PW\QCMBundle\Entity\Matiere;
 
 /**
  * QCMGroup
@@ -36,11 +37,10 @@ class QCMGroup
     private $description;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="urlPhoto", type="string", length=255)
+     * @ORM\ManyToOne(targetEntity="PW\QCMBundle\Entity\Image")
+     * @ORM\JoinColumn(nullable=true)
      */
-    private $urlPhoto;
+    private $image;
 
     /**
      * @var \DateTime
@@ -51,7 +51,7 @@ class QCMGroup
 
     /**
      * @ORM\ManyToOne(targetEntity="PW\QCMBundle\Entity\Matiere")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=true)
      */
     private $matiere;
 
@@ -162,5 +162,28 @@ class QCMGroup
     public function getDate()
     {
         return $this->date;
+    }
+
+    /**
+     * Set matiere
+     *
+     * @param \PW\QCMBundle\Entity\Matiere $matiere
+     * @return QCMGroup
+     */
+    public function setMatiere(\PW\QCMBundle\Entity\Matiere $matiere)
+    {
+        $this->matiere = $matiere;
+
+        return $this;
+    }
+
+    /**
+     * Get matiere
+     *
+     * @return \PW\QCMBundle\Entity\Matiere 
+     */
+    public function getMatiere()
+    {
+        return $this->matiere;
     }
 }

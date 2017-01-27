@@ -43,11 +43,10 @@ class Matiere
     private $description;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="urlPhoto", type="string", length=255)
+     * @ORM\ManyToOne(targetEntity="PW\QCMBundle\Entity\Image")
+     * @ORM\JoinColumn(nullable=true)
      */
-    private $urlPhoto;
+    private $image;
 
     /**
      * @ORM\ManyToOne(targetEntity="PW\QCMBundle\Entity\Concours")
@@ -163,5 +162,28 @@ class Matiere
     public function getUrlPhoto()
     {
         return $this->urlPhoto;
+    }
+
+    /**
+     * Set concours
+     *
+     * @param \PW\QCMBundle\Entity\Concours $concours
+     * @return Matiere
+     */
+    public function setConcours(\PW\QCMBundle\Entity\Concours $concours)
+    {
+        $this->concours = $concours;
+
+        return $this;
+    }
+
+    /**
+     * Get concours
+     *
+     * @return \PW\QCMBundle\Entity\Concours 
+     */
+    public function getConcours()
+    {
+        return $this->concours;
     }
 }

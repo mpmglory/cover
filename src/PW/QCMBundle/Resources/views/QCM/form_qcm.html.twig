@@ -1,0 +1,112 @@
+<div class="well">
+  {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
+
+  {# Les erreurs générales du formulaire. #}
+  {{ form_errors(form) }}
+
+  {# Génération du label + error + widget pour un champ. #}
+  {% if form.date is defined %}
+    {{ form_row(form.date) }}
+  {% endif %}
+
+  {# Génération manuelle et éclatée : #}
+  <div class="form-group">
+    {# Génération du label. #}
+    {{ form_label(form.enonce, "Enonce du QCM", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+
+    {# Affichage des erreurs pour ce champ précis. #}
+    {{ form_errors(form.enonce) }}
+
+    <div class="col-sm-10">
+      {# Génération de l'input. #}
+      {{ form_widget(form.enonce, {'attr': {'class': 'form-control'}}) }}
+    </div>
+  </div>
+
+  {# Idem pour un autre champ. #}
+  <div class="form-group">
+    {{ form_label(form.propoA, "Proposition A", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+    {{ form_errors(form.propoA) }}
+    <div class="col-sm-10">
+      {{ form_widget(form.propoA, {'attr': {'class': 'form-control'}}) }}
+    </div>
+  </div>
+
+  {# Idem pour un autre champ. #}
+  <div class="form-group">
+    {{ form_label(form.propoB, "Proposition B", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+    {{ form_errors(form.propoB) }}
+    <div class="col-sm-10">
+      {{ form_widget(form.propoB, {'attr': {'class': 'form-control'}}) }}
+    </div>
+  </div>
+
+  {# Idem pour un autre champ. #}
+  <div class="form-group">
+    {{ form_label(form.propoC, "Proposition C", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+    {{ form_errors(form.propoC) }}
+    <div class="col-sm-10">
+      {{ form_widget(form.propoC, {'attr': {'class': 'form-control'}}) }}
+    </div>
+  </div>
+
+  {# Idem pour un autre champ. #}
+  <div class="form-group">
+    {{ form_label(form.propoD, "Proposition D", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+    {{ form_errors(form.propoD) }}
+    <div class="col-sm-10">
+      {{ form_widget(form.propoD, {'attr': {'class': 'form-control'}}) }}
+    </div>
+  </div>
+
+  {# Idem pour un autre champ. #}
+  <div class="form-group">
+    {{ form_label(form.propoE, "Proposition E", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+    {{ form_errors(form.propoE) }}
+    <div class="col-sm-10">
+      {{ form_widget(form.propoE, {'attr': {'class': 'form-control'}}) }}
+    </div>
+  </div>
+
+  {# Idem pour un autre champ. #}
+  <div class="form-group">
+    {{ form_label(form.explication, "Explications", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+    {{ form_errors(form.explication) }}
+    <div class="col-sm-10">
+      {{ form_widget(form.explication, {'attr': {'class': 'form-control'}}) }}
+    </div>
+  </div>
+
+  {# Idem pour un autre champ. #}
+  <div class="form-group">
+    {{ form_label(form.reponse, "Reponse", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+    {{ form_errors(form.reponse) }}
+    <div class="col-sm-10">
+      {{ form_widget(form.reponse, {'attr': {'class': 'form-control'}}) }}
+    </div>
+  </div>
+
+  {# Formulaire Image #}
+ {#<div>
+    {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
+        <div class="form-group">
+            {{ form_label(form.image.file, "Image", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+            {{ form_errors(form.image.file) }}
+            <div class="col-sm-10">
+              {{ form_widget(form.image.file, {'attr': {'class': 'form-control'}}) }}
+            </div>
+        </div>
+    {{ form_end(form) }}
+  </div>#}
+
+   {# Génération automatique des champs pas encore écrits.
+     Dans cet exemple, ce serait le champ CSRF (géré automatiquement par Symfony !)
+     et tous les champs cachés (type « hidden »). #}
+  {{ form_rest(form) }}
+
+  {# Pour le bouton, pas de label ni d'erreur, on affiche juste le widget #}
+  {{ form_widget(form.submit, {'attr': {'class': 'btn btn-primary btn-info'}}) }}
+
+  {# Fermeture de la balise <form> du formulaire HTML #}
+  {{ form_end(form) }}
+</div>

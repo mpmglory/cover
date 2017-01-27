@@ -37,11 +37,10 @@ class QCMGroup
     private $description;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="urlPhoto", type="string", length=255)
+     * @ORM\ManyToOne(targetEntity="PW\QCMBundle\Entity\Image")
+     * @ORM\JoinColumn(nullable=true)
      */
-    private $urlPhoto;
+    private $image;
 
     /**
      * @var \DateTime
@@ -186,5 +185,28 @@ class QCMGroup
     public function getMatiere()
     {
         return $this->matiere;
+    }
+
+    /**
+     * Set image
+     *
+     * @param \PW\QCMBundle\Entity\Image $image
+     * @return QCMGroup
+     */
+    public function setImage(\PW\QCMBundle\Entity\Image $image = null)
+    {
+        $this->image = $image;
+
+        return $this;
+    }
+
+    /**
+     * Get image
+     *
+     * @return \PW\QCMBundle\Entity\Image 
+     */
+    public function getImage()
+    {
+        return $this->image;
     }
 }

@@ -155,27 +155,4 @@ class Concours
     {
         return $this->urlPhoto;
     }
-
-    /**
-     * Set image
-     *
-     * @param \PW\QCMBundle\Entity\Image $image
-     * @return Concours
-     */
-    public function setImage(\PW\QCMBundle\Entity\Image $image = null)
-    {
-        $this->image = $image;
-
-        return $this;
-    }
-
-    /**
-     * Get image
-     *
-     * @return \PW\QCMBundle\Entity\Image 
-     */
-    public function getImage()
-    {
-        return $this->image;
-    }
 }

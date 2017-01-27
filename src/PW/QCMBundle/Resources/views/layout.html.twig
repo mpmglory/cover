@@ -10,16 +10,23 @@
 		
 		{% block stylesheets %}
 			<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+			<style type="text/css">
+				body { padding-top: 70px; }
+			</style>
 		{% endblock %}
 	</head>
 	
 	<body>
 		<div class="container">
-			<div id="header" class="jumbotron">
-				<h1>{% block title2 %} - PW Group Intl{% endblock %}</h1>
-				<p>
-					Projet e-QCM mobile
-				</p>
+			<div id="header" class="navbar navbar-inverse navbar-fixed-top">
+				<div class="navbar-header">
+					<a class="navbar-brand" href="#">e-QCM mobile</a>
+				</div>
+				<ul class="nav navbar-nav">
+					<li><a href="{{ path('pw_qcm_homepage')}}">Accueil</a></li>
+					<li><a href="{{ path('pw_qcm_add') }}">Ajouter QCM</a></li>
+					<li><a href="{{ path('pw_qcm_add_qcmgroup')}}">Ajouter Groupe</a></li>
+				</ul>
 			</div>
 			
 			<div class="row">
@@ -28,7 +35,7 @@
 					<ul class="nav nav-pills nav-stacked">
 						<li><a href="{{ path('pw_qcm_homepage')}}">Tous les QCM</a></li>
 						<li><a href="{{ path('pw_qcm_add')}}">Ajouter un QCM</a></li>
-						<li><a href="{{ path('pw_qcm_home_qcmgroup')}}">Tous les Groupes de qcm</a></li>
+						<li><a href="{{ path('pw_qcm_home_qcmgroup')}}">Tous les Groupes de QCM</a></li>
 						<li><a href="{{ path('pw_qcm_add_qcmgroup')}}">Ajouter un Groupe de QCM</a></li>
 					</ul>
 				</div>

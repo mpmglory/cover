@@ -45,35 +45,35 @@ class QCM
     /**
      * @var string
      *
-     * @ORM\Column(name="propoA", type="string", length=255)
+     * @ORM\Column(name="propoA", type="text")
      */
     private $propoA;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="propoB", type="string", length=255)
+     * @ORM\Column(name="propoB", type="text")
      */
     private $propoB;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="propoC", type="string", length=255)
+     * @ORM\Column(name="propoC", type="text")
      */
     private $propoC;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="propoD", type="string", length=255, nullable=true)
+     * @ORM\Column(name="propoD", type="text", nullable=true)
      */
     private $propoD;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="propoE", type="string", length=255, nullable=true)
+     * @ORM\Column(name="propoE", type="text", nullable=true)
      */
     private $propoE;
 
@@ -92,21 +92,20 @@ class QCM
     private $explication;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="urlPhoto", type="string", length=255, nullable=true)
+     * @ORM\ManyToOne(targetEntity="PW\QCMBundle\Entity\Image")
+     * @ORM\JoinColumn(nullable=true)
      */
-    private $urlPhoto;
+    private $image;
 
     /**
      * @ORM\ManyToOne(targetEntity="PW\QCMBundle\Entity\User")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=true)
      */
     private $user;
 
     /**
      * @ORM\ManyToOne(targetEntity="PW\QCMBundle\Entity\QCMGroup")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=true)
      */
     private $qcmgroup;
 
@@ -379,5 +378,51 @@ class QCM
     public function getReponse()
     {
         return $this->reponse;
+    }
+
+    /**
+     * Set user
+     *
+     * @param \PW\QCMBundle\Entity\User $user
+     * @return QCM
+     */
+    public function setUser(\PW\QCMBundle\Entity\User $user)
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return \PW\QCMBundle\Entity\User 
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
+
+    /**
+     * Set qcmgroup
+     *
+     * @param \PW\QCMBundle\Entity\QCMGroup $qcmgroup
+     * @return QCM
+     */
+    public function setQcmgroup(\PW\QCMBundle\Entity\QCMGroup $qcmgroup)
+    {
+        $this->qcmgroup = $qcmgroup;
+
+        return $this;
+    }
+
+    /**
+     * Get qcmgroup
+     *
+     * @return \PW\QCMBundle\Entity\QCMGroup 
+     */
+    public function getQcmgroup()
+    {
+        return $this->qcmgroup;
     }
 }

@@ -98,4 +98,15 @@ class QCMController extends Controller
             'form' => $form->createView()
             ));
     }
+
+    public function deleteAction($id){
+
+        $em = $this->getDoctrine()->getManager();
+        $qcm  = $em->getRepository('PWQCMBundle:QCM')->find($id);
+
+        $em->remove($qcm);
+        $em->flush();
+
+        return $this->redirectToRoute('pw_qcm_homepage');
+    }
 }
