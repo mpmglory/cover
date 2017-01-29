@@ -9,6 +9,15 @@
     {{ form_row(form.date) }}
   {% endif %}
 
+  {# Idem pour un autre champ. #}
+  <div class="form-group">
+    {{ form_label(form.qcmgroup, "Groupe-QCM:", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+    {{ form_errors(form.qcmgroup) }}
+    <div class="col-sm-10">
+      {{ form_widget(form.qcmgroup, {'attr': {'class': 'form-control'}}) }}
+    </div>
+  </div>
+
   {# Génération manuelle et éclatée : #}
   <div class="form-group">
     {# Génération du label. #}
@@ -87,17 +96,14 @@
   </div>
 
   {# Formulaire Image #}
- {#<div>
-    {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
-        <div class="form-group">
+    <div class="form-group">
             {{ form_label(form.image.file, "Image", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
             {{ form_errors(form.image.file) }}
             <div class="col-sm-10">
               {{ form_widget(form.image.file, {'attr': {'class': 'form-control'}}) }}
             </div>
-        </div>
-    {{ form_end(form) }}
-  </div>#}
+    </div>
+
 
    {# Génération automatique des champs pas encore écrits.
      Dans cet exemple, ce serait le champ CSRF (géré automatiquement par Symfony !)

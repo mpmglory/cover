@@ -66,3 +66,8 @@ pw_qcm_delete_qcmgroup:
         _controller: PWQCMBundle:QCMGroup:delete
     requirements:
         id: \d+
+
+pw_matiere_add:
+    path:     /matiere/add
+    defaults:
+        _controller: PWQCMBundle:Matiere:add

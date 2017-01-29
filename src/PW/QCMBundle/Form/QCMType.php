@@ -32,6 +32,12 @@ class QCMType extends AbstractType
                     'multiple' => false,
                     ))
                 ->add('explication', 'textarea')
+                ->add('qcmgroup', 'entity', array(
+                    'class' => 'PWQCMBundle:QCMGroup',
+                    'property' => 'titre',
+                    'expanded' => false,
+                    'multiple' => false,
+                    ))
                 ->add('image',   new ImageType())
                 ->add('submit',     'submit')
                 ;

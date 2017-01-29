@@ -6,10 +6,10 @@
 	Ajouter des Groupes de QCM - {{ parent() }}
 {% endblock %}
 
-{% block title2 %}Enregistrement des nouveaux groupes pour QCM.{% endblock %}
+{% block title2 %}Enregistrement d'un nouveau groupe-QCM.{% endblock %}
 
 {% block body %}
 	
-	{{ form(form) }}
+	{{ include("PWQCMBundle:QCMGroup:form_qcmgroup.html.twig") }}
 	
 {% endblock %}

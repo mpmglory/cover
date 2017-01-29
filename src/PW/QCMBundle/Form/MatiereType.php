@@ -13,7 +13,17 @@ class MatiereType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('date')->add('nom')->add('description')->add('urlPhoto')->add('concours')        ;
+        $builder->add('nom',     'textarea')
+                ->add('description',     'textarea')
+                ->add('concours', 'entity', array(
+                    'class' => 'PWQCMBundle:Concours',
+                    'property' => 'nom',
+                    'expanded' => false,
+                    'multiple' => false,
+                    ))
+                ->add('image',   new ImageType())
+                ->add('submit',     'submit')
+                ;
     }
     
     /**

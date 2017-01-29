@@ -13,10 +13,17 @@ class QCMGroupType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('titre', 'text')
+        $builder->add('titre', 'textarea')
                 ->add('description', 'textarea')
-                ->add('urlPhoto', 'text')
-                ->add('submit',     'submit');
+                ->add('matiere', 'entity', array(
+                    'class' => 'PWQCMBundle:Matiere',
+                    'property' => 'nom',
+                    'expanded' => false,
+                    'multiple' => false,
+                    ))
+                ->add('image',   new ImageType())
+                ->add('submit',     'submit')
+                ;
     }
     
     /**

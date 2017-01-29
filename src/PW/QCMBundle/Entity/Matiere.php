@@ -43,14 +43,14 @@ class Matiere
     private $description;
 
     /**
-     * @ORM\ManyToOne(targetEntity="PW\QCMBundle\Entity\Image")
+     * @ORM\ManyToOne(targetEntity="PW\QCMBundle\Entity\Image", cascade={"persist", "remove"})
      * @ORM\JoinColumn(nullable=true)
      */
     private $image;
 
     /**
      * @ORM\ManyToOne(targetEntity="PW\QCMBundle\Entity\Concours")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=true)
      */
     private $concours;
 

@@ -93,7 +93,7 @@ class QCM
     private $explication;
 
     /**
-     * @ORM\ManyToOne(targetEntity="PW\QCMBundle\Entity\Image", cascade={"persist"})
+     * @ORM\ManyToOne(targetEntity="PW\QCMBundle\Entity\Image", cascade={"persist", "remove"})
      * @ORM\JoinColumn(nullable=true)
      */
     private $image;
@@ -105,7 +105,7 @@ class QCM
     private $user;
 
     /**
-     * @ORM\ManyToOne(targetEntity="PW\QCMBundle\Entity\QCMGroup")
+     * @ORM\ManyToOne(targetEntity="PW\QCMBundle\Entity\QCMGroup", cascade={"persist"})
      * @ORM\JoinColumn(nullable=true)
      */
     private $qcmgroup;
