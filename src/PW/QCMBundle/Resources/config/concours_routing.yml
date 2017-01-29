@@ -1,0 +1,31 @@
+
+pw_concours_home:
+    path:     /
+    defaults:
+        _controller: PWQCMBundle:Concours:index
+
+pw_concours_add:
+    path:     /add
+    defaults:
+        _controller: PWQCMBundle:Concours:add
+
+pw_concours_view:
+    path:     /view/{id}
+    defaults:
+        _controller: PWQCMBundle:Concours:view
+    requirements:
+        id: \d+
+
+pw_concours_edit:
+    path:     /edit/{id}
+    defaults:
+        _controller: PWQCMBundle:Concours:edit
+    requirements:
+        id: \d+
+
+pw_concours_delete:
+    path:     /delete/{id}
+    defaults:
+        _controller: PWQCMBundle:Concours:delete
+    requirements:
+        id: \d+

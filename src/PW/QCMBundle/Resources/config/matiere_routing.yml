@@ -1,0 +1,31 @@
+
+pw_matiere_home:
+    path:     /
+    defaults:
+        _controller: PWQCMBundle:Matiere:index
+
+pw_matiere_add:
+    path:     /add
+    defaults:
+        _controller: PWQCMBundle:Matiere:add
+
+pw_matiere_view:
+    path:     /view/{id}
+    defaults:
+        _controller: PWQCMBundle:Matiere:view
+    requirements:
+        id: \d+
+
+pw_matiere_edit:
+    path:     /edit/{id}
+    defaults:
+        _controller: PWQCMBundle:Matiere:edit
+    requirements:
+        id: \d+
+
+pw_matiere_delete:
+    path:     /delete/{id}
+    defaults:
+        _controller: PWQCMBundle:Matiere:delete
+    requirements:
+        id: \d+

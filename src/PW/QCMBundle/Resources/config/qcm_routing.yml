@@ -1,0 +1,37 @@
+pw_qcm_homepage:
+    path:     /
+    defaults:
+        _controller: PWQCMBundle:QCM:index
+
+pw_qcm_add:
+    path:     /add
+    defaults:
+        _controller: PWQCMBundle:QCM:add
+
+pw_qcm_view:
+    path:     /view/{id}
+    defaults:
+        _controller: PWQCMBundle:QCM:view
+    requirements:
+        id: \d+
+
+pw_qcm_edit:
+    path:     /edit/{id}
+    defaults:
+        _controller: PWQCMBundle:QCM:edit
+    requirements:
+        id: \d+
+
+pw_qcm_valider:
+    path:     /valider/{id}
+    defaults:
+        _controller: PWQCMBundle:QCM:valider
+    requirements:
+        id: \d+
+
+pw_qcm_delete:
+    path:     /delete/{id}
+    defaults:
+        _controller: PWQCMBundle:QCM:delete
+    requirements:
+        id: \d+

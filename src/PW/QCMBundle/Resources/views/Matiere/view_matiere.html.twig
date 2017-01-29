@@ -1,0 +1,35 @@
+{# (couche 3) #}
+
+{% extends "PWQCMBundle::layout.html.twig" %}
+
+{% block title %}
+	Affichage des QCM - {{ parent() }}
+{% endblock %}
+
+{% block title2 %}Affichage des Matieres{% endblock %}
+
+{% block body %}
+
+	<div class="well">
+		<h4> Nom de la matiere: {{ matiere.nom }} </h4> </br>
+		<em>Cree le {{ matiere.date|date('d/m/Y') }} </br></em>
+		<b>Description:</b> {{ matiere.description }} </br>
+		</br><hr>
+	</div>
+	<p>
+		<a href="{{ path('pw_matiere_home') }}" class="btn btn-default">
+			<i class="glyphicon glyphicon-chevron-left"></i>
+			Retour a la liste des matieres
+		</a>
+
+		<a href="{{ path('pw_matiere_edit', {'id': matiere.id}) }}" class="btn btn-default">
+			<i class="glyphicon glyphicon-edit"></i>
+			Modifier la matiere
+		</a>
+
+		<a href="{{ path('pw_matiere_delete', {'id': matiere.id}) }}" class="btn btn-danger">
+			<i class="glyphicon glyphicon-trash"></i>
+			Supprimer la matiere
+		</a>
+	</p>
+{% endblock %}

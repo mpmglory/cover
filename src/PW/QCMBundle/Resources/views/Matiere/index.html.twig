@@ -1,0 +1,35 @@
+{# (couche 3) #}
+
+{% extends "PWQCMBundle::layout.html.twig" %}
+
+{% block title %}
+	Accueil - {{ parent() }}
+{% endblock %}
+
+{% block title2 %}Gestion des Matieres{% endblock %}
+
+{% block menu %}
+
+	<ul class="nav nav-pills nav-stacked">
+		<li><a href="{{ path('pw_matiere_add')}}">Creer une Matiere</a></li>
+		{#<li><a href="{{ path('pw_qcm_homepage')}}">Afficher les Matieres</a></li>#}	
+	</ul>
+
+{% endblock %}
+
+{% block body %}
+	<h3>Tous les QCM</h3>
+	<ul>
+	{% for matiere in listMatiere %}
+		<li>
+			<a href="{{ path('pw_matiere_view', {'id': matiere.id}) }}">
+				{{ matiere.nom }}
+			</a>
+			le {{ matiere.date|date('d/m/Y') }}
+		</li>
+	{% else %}
+		<li>Pas encore de Matiere</li>
+	{% endfor %}
+	</ul>
+	
+{% endblock %}

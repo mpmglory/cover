@@ -43,7 +43,7 @@ class Concours
     private $description;
 
     /**
-     * @ORM\ManyToOne(targetEntity="PW\QCMBundle\Entity\Image")
+     * @ORM\ManyToOne(targetEntity="PW\QCMBundle\Entity\Image", cascade={"persist"})
      * @ORM\JoinColumn(nullable=true)
      */
     private $image;

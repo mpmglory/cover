@@ -1,0 +1,31 @@
+
+pw_qcmgroup_home:
+    path:     /
+    defaults:
+        _controller: PWQCMBundle:QCMGroup:index
+
+pw_qcmgroup_add:
+    path:     /add
+    defaults:
+        _controller: PWQCMBundle:QCMGroup:add
+
+pw_qcmgroup_view:
+    path:     /view/{id}
+    defaults:
+        _controller: PWQCMBundle:QCMGroup:view
+    requirements:
+        id: \d+
+
+pw_qcmgroup_edit:
+    path:     /edit/{id}
+    defaults:
+        _controller: PWQCMBundle:QCMGroup:edit
+    requirements:
+        id: \d+
+
+pw__qcmgroup_delete:
+    path:     /delete/{id}
+    defaults:
+        _controller: PWQCMBundle:QCMGroup:delete
+    requirements:
+        id: \d+

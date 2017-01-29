@@ -1,0 +1,54 @@
+<div class="well">
+  {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
+
+  {# Les erreurs générales du formulaire. #}
+  {{ form_errors(form) }}
+
+  {# Génération du label + error + widget pour un champ. #}
+  {% if form.date is defined %}
+    {{ form_row(form.date) }}
+  {% endif %}
+
+  {# Génération manuelle et éclatée : #}
+  <div class="form-group">
+    {# Génération du label. #}
+    {{ form_label(form.nom, "Nom du concours:", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+
+    {# Affichage des erreurs pour ce champ précis. #}
+    {{ form_errors(form.nom) }}
+
+    <div class="col-sm-10">
+      {# Génération de l'input. #}
+      {{ form_widget(form.nom, {'attr': {'class': 'form-control'}}) }}
+    </div>
+  </div>
+
+  {# Idem pour un autre champ. #}
+  <div class="form-group">
+    {{ form_label(form.description, "Description:", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+    {{ form_errors(form.description) }}
+    <div class="col-sm-10">
+      {{ form_widget(form.description, {'attr': {'class': 'form-control'}}) }}
+    </div>
+  </div>
+
+  {# Formulaire Image #}
+        <div class="form-group">
+            {{ form_label(form.image.file, "Image", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+            {{ form_errors(form.image.file) }}
+            <div class="col-sm-10">
+              {{ form_widget(form.image.file, {'attr': {'class': 'form-control'}}) }}
+            </div>
+        </div>
+        
+   {# Génération automatique des champs pas encore écrits.
+     Dans cet exemple, ce serait le champ CSRF (géré automatiquement par Symfony !)
+     et tous les champs cachés (type « hidden »). #}
+ {# {{ form_rest(form) }}#}
+
+  {# Pour le bouton, pas de label ni d'erreur, on affiche juste le widget #}
+  {{ form_widget(form.submit, {'attr': {'class': 'btn btn-primary btn-info'}}) }}
+
+  {# Fermeture de la balise <form> du formulaire HTML #}
+  {{ form_end(form) }}
+</div>

@@ -1,0 +1,36 @@
+{# (couche 3) #}
+
+{% extends "PWQCMBundle::layout.html.twig" %}
+
+{% block title %}
+	Affichage des QCM - {{ parent() }}
+{% endblock %}
+
+{% block title2 %}Affichage des Concours{% endblock %}
+
+{% block body %}
+
+	<div class="well">
+		<h4> Nom du concours: {{ concours.nom }} </h4> </br>
+		<em>Cree le {{ concours.date|date('d/m/Y') }} </br></em>
+		<b>Description:</b> {{ concours.description }} </br>
+		</br><hr>
+	</div>
+	<p>
+		<a href="{{ path('pw_concours_home') }}" class="btn btn-default">
+			<i class="glyphicon glyphicon-chevron-left"></i>
+			Retour a la liste des concours
+		</a>
+
+		<a href="{{ path('pw_concours_edit', {'id': concours.id}) }}" class="btn btn-default">
+			<i class="glyphicon glyphicon-edit"></i>
+			Modifier le concours
+		</a>
+
+		<a href="{{ path('pw_concours_delete', {'id': concours.id}) }}" class="btn btn-danger">
+			<i class="glyphicon glyphicon-trash"></i>
+			Supprimer le concours
+		</a>
+	</p>
+
+{% endblock %}

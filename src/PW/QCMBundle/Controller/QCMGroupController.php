@@ -51,7 +51,7 @@ class QCMGroupController extends Controller
 			$request->getSession()->getFlashBag()
 					->add('notice', 'Groupe de QCM bien enregistree.');
 		
-			return $this->redirectToRoute('pw_qcm_add_qcmgroup');
+			return $this->redirectToRoute('pw_qcmgroup_add');
 		}
 
         return $this->render('PWQCMBundle:QCMGroup:add_qcmgroup.html.twig', array(
@@ -76,7 +76,7 @@ class QCMGroupController extends Controller
             $request->getSession()->getFlashBag()
                     ->add('notice', 'Annonce bien enregistree.');
         
-            return $this->redirectToRoute('pw_qcm_view_qcmgroup', array(
+            return $this->redirectToRoute('pw_qcmgroup_view', array(
                 'id' => $id
                 ));
         }

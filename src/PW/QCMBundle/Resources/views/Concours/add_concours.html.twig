@@ -1,0 +1,15 @@
+{# (couche 3) #}
+
+{% extends "PWQCMBundle::layout.html.twig" %}
+
+{% block title %}
+	Ajouter des QCM - {{ parent() }}
+{% endblock %}
+
+{% block title2 %}Enregistrement d'un nouveau Concours.{% endblock %}
+
+{% block body %}
+
+	{{ include("PWQCMBundle:Concours:form_concours.html.twig") }}
+	
+{% endblock %}
