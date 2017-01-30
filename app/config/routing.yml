@@ -1,3 +1,8 @@
+homepage:
+    path:     /
+    defaults:
+        _controller: PWQCMBundle:QCM:index
+
 pwqcm:
     resource: "@PWQCMBundle/Resources/config/qcm_routing.yml"
     prefix:   /qcm
