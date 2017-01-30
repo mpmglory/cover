@@ -9,6 +9,15 @@
     {{ form_row(form.date) }}
   {% endif %}
 
+  {# Formulaire Matiere #}
+    <div class="form-group">
+          {{ form_label(form.matiere, "Matiere:", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+          {{ form_errors(form.matiere) }}
+          <div class="col-sm-10">
+              {{ form_widget(form.matiere, {'attr': {'class': 'form-control'}}) }}
+          </div>
+    </div>
+
   {# Génération manuelle et éclatée : #}
   <div class="form-group">
     {# Génération du label. #}
@@ -31,15 +40,6 @@
       {{ form_widget(form.description, {'attr': {'class': 'form-control'}}) }}
     </div>
   </div>
-
-   {# Formulaire Concours #}
-    <div class="form-group">
-          {{ form_label(form.matiere, "Matiere:", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
-          {{ form_errors(form.matiere) }}
-          <div class="col-sm-10">
-              {{ form_widget(form.matiere, {'attr': {'class': 'form-control'}}) }}
-          </div>
-    </div>
 
   {# Formulaire Image #}
         <div class="form-group">

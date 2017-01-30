@@ -8,6 +8,8 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use PW\QCMBundle\Entity\QCMGroup;
 use PW\QCMBundle\Form\QCMGroupType;
+use PW\QCMBundle\Entity\Concours;
+use PW\QCMBundle\Form\ConcoursType;
 
 class QCMGroupController extends Controller
 {
@@ -39,8 +41,10 @@ class QCMGroupController extends Controller
     	$em = $this->getDoctrine()->getManager();
 
     	$qcmGroup = new QCMGroup();
-
     	$form = $this->get('form.factory')->create(new QCMGroupType(), $qcmGroup);
+
+        $concours = new Concours();
+        $form2 = $this->get('form.factory')->create(new ConcoursType(), $concours);
 			
 		if($request->isMethod('POST') && $form->handleRequest($request)->isValid()){
 
@@ -55,7 +59,8 @@ class QCMGroupController extends Controller
 		}
 
         return $this->render('PWQCMBundle:QCMGroup:add_qcmgroup.html.twig', array(
-        	'form' => $form->createView()
+        	'form' => $form->createView(),
+            'form2' => $form2->createView()
         	));
     }
 

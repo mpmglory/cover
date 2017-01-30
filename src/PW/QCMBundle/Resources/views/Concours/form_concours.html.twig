@@ -1,12 +1,12 @@
 <div class="well">
-  {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
+  {{ form_start(form2, {'attr': {'class': 'form-horizontal'}}) }}
 
   {# Les erreurs générales du formulaire. #}
-  {{ form_errors(form) }}
+  {{ form_errors(form2) }}
 
   {# Génération du label + error + widget pour un champ. #}
-  {% if form.date is defined %}
-    {{ form_row(form.date) }}
+  {% if form2.date is defined %}
+    {{ form_row(form2.date) }}
   {% endif %}
 
   {# Génération manuelle et éclatée : #}
