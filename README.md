@@ -1,4 +1,10 @@
 COVER
 =====
 
-A Symfony project created on January 24, 2017, 8:32 pm.
+NB:
+pour que ce projet continue a fonctionner sur ton localhost, tu doit ajouter la ligne 
+suivante dans ton fichier parameters.yml:
+
+database_driver: pdo_mysql 
+
+ajouter de préference a la premiere ligne
