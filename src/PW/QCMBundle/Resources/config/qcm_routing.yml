@@ -8,6 +8,13 @@ pw_qcm_add:
     defaults:
         _controller: PWQCMBundle:QCM:add
 
+pw_qcm_add2:
+    path:     /add2/{id}
+    defaults:
+        _controller: PWQCMBundle:QCM:add2
+    requirements:
+        id: \d+
+
 pw_qcm_view:
     path:     /view/{id}
     defaults:

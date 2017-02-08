@@ -1,0 +1,58 @@
+{#  (couche 1) #}
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<title>{% block title %}PW Application{% endblock %}</title>
+		
+		{% block stylesheets %}
+			<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+			<style type="text/css">
+				body { padding-top: 70px; }
+			</style>
+		{% endblock %}
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+<script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
+</script> 	
+	</head>
+	
+	<body>
+		<div class="container">
+			<div id="header" class="navbar navbar-inverse navbar-fixed-top">
+				<div class="navbar-header">
+					<a class="navbar-brand" href="#">e-QCM mobile</a>
+				</div>
+				<ul class="nav navbar-nav">
+					<li><a href="{{ path('pw_qcm_homepage')}}">Gestion des QCM</a></li>
+					<li><a href="{{ path('pw_qcmgroup_home') }}">Gestion des Groupes-QCM</a></li>
+					<li><a href="{{ path('pw_matiere_home')}}">Gestion des Matieres</a></li>
+					<li><a href="{{ path('pw_concours_home')}}">Gestion des Concours</a></li>
+				</ul>
+			</div>
+			
+			<div class="row">
+				<div id="content" class="col-md-12">
+					{% block body %}
+					{% endblock %}
+				</div>
+			</div>
+			
+			<hr>
+			
+			<footer>
+				<p>PW Group Intl on the date {{ 'now'|date() }} . </p>
+			</footer>
+		</div>
+		
+		{% block javascripts %}
+			<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+			<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+		{% endblock %}
+	</body>
+</html>

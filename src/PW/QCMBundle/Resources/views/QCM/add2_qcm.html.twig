@@ -1,0 +1,15 @@
+{# (couche 3) #}
+
+{% extends "PWQCMBundle::layout2.html.twig" %}
+
+{% block title %}
+	Ajouter des QCM - {{ parent() }}
+{% endblock %}
+
+{% block title2 %}Enregistrement des QCM dans le groupe{% endblock %}
+
+{% block body %}
+
+	{{ include("PWQCMBundle:QCM:form2_qcm.html.twig") }}
+	
+{% endblock %}
