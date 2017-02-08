@@ -1,0 +1,22 @@
+
+{% extends "PWQCMBundle::layout.html.twig" %}
+
+{% block title2 %}
+
+	Choisir un concours
+					
+{% endblock %}
+
+{% block body %}
+
+<ul class="nav nav-pills nav-stacked">
+  {% for cn in list %}
+    <li>
+      <a href="{{ path('pw_matiere_du_concours', {'id': cn.id}) }}">
+        {{ cn.nom }}
+      </a>
+    </li>
+  {% endfor %}
+</ul>
+
+{% endblock %}

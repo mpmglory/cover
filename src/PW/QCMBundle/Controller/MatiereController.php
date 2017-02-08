@@ -95,4 +95,21 @@ class MatiereController extends Controller
 
         return $this->redirectToRoute('pw_qcm_homepage');
     }
+
+    public function menuAction($id){
+
+        $em = $this->getDoctrine()->getManager();
+
+        $concours  = $em->getRepository('PWQCMBundle:Concours')->find($id);
+
+        $list  = $em->getRepository('PWQCMBundle:Matiere')->findBy(
+                array('concours' => $concours),
+                array('nom' => 'asc')
+            );
+
+        return $this->render('PWQCMBundle:Matiere:menu.html.twig', array(
+            'list' => $list
+            ));
+
+    }
 }

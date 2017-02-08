@@ -29,3 +29,10 @@ pw__qcmgroup_delete:
         _controller: PWQCMBundle:QCMGroup:delete
     requirements:
         id: \d+
+
+pw_groupes_de_la_matiere:
+    path:     /menu/{id}
+    defaults:
+        _controller: PWQCMBundle:QCMGroup:menu
+    requirements:
+        id: \d+

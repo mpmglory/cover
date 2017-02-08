@@ -1,0 +1,22 @@
+
+{% extends "PWQCMBundle::layout.html.twig" %}
+
+{% block title2 %}
+
+	Choisir un groupe-QCM
+					
+{% endblock %}
+
+{% block body %}
+
+<ul class="nav nav-pills nav-stacked">
+  {% for cn in list %}
+    <li>
+      <a href="{{ path('pw_qcm_add2', {'id': cn.id}) }}">
+        {{ cn.titre }}
+      </a>
+    </li>
+  {% endfor %}
+</ul>
+
+{% endblock %}

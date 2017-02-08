@@ -29,3 +29,10 @@ pw_matiere_delete:
         _controller: PWQCMBundle:Matiere:delete
     requirements:
         id: \d+
+
+pw_matiere_du_concours:
+    path:     /menu/{id}
+    defaults:
+        _controller: PWQCMBundle:Matiere:menu
+    requirements:
+        id: \d+

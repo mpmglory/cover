@@ -95,4 +95,14 @@ class ConcoursController extends Controller
 
         return $this->redirectToRoute('pw_concours_home');
     }
+
+    public function menuAction(){
+
+        $em = $this->getDoctrine()->getManager();
+        $list  = $em->getRepository('PWQCMBundle:Concours')->findAll();
+
+        return $this->render('PWQCMBundle:Concours:menu.html.twig', array(
+            'list' => $list
+            ));
+    }
 }

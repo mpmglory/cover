@@ -119,7 +119,7 @@ class QCMController extends Controller
             $em->flush();
 
             $request->getSession()->getFlashBag()
-                    ->add('notice', 'Annonce bien enregistree.');
+                    ->add('info', 'Annonce bien enregistree.');
         
             return $this->redirectToRoute('pw_qcm_add2', array(
                 'id' => $id

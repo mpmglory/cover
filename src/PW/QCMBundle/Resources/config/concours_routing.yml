@@ -29,3 +29,8 @@ pw_concours_delete:
         _controller: PWQCMBundle:Concours:delete
     requirements:
         id: \d+
+
+pw_concours_menu:
+    path:     /menu
+    defaults:
+        _controller: PWQCMBundle:Concours:menu

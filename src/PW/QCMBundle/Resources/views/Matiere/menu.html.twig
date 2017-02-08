@@ -1,0 +1,22 @@
+
+{% extends "PWQCMBundle::layout.html.twig" %}
+
+{% block title2 %}
+
+	Choisir une matiere
+					
+{% endblock %}
+
+{% block body %}
+
+<ul class="nav nav-pills nav-stacked">
+  {% for cn in list %}
+    <li>
+      <a href="{{ path('pw_groupes_de_la_matiere', {'id': cn.id}) }}">
+        {{ cn.nom }}
+      </a>
+    </li>
+  {% endfor %}
+</ul>
+
+{% endblock %}

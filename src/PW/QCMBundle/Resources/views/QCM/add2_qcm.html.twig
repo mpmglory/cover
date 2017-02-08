@@ -6,7 +6,16 @@
 	Ajouter des QCM - {{ parent() }}
 {% endblock %}
 
-{% block title2 %}Enregistrement des QCM dans le groupe{% endblock %}
+{% block title2 %}
+	Enregistrement des QCM dans le groupe
+
+{% for message in app.session.flashbag.get('info') %}
+    <div class="alert alert-info">
+    	Message flash : {{ message }}
+    </div>
+  {% endfor %}
+	
+{% endblock %}
 
 {% block body %}
 

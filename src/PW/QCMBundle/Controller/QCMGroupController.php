@@ -90,4 +90,21 @@ class QCMGroupController extends Controller
             'form' => $form->createView()
             ));
     }
+
+    public function menuAction($id){
+
+        $em = $this->getDoctrine()->getManager();
+
+        $matiere  = $em->getRepository('PWQCMBundle:Matiere')->find($id);
+
+        $list  = $em->getRepository('PWQCMBundle:QCMGroup')->findBy(
+                array('matiere' => $matiere),
+                array('titre' => 'asc')
+            );
+
+        return $this->render('PWQCMBundle:QCMGroup:menu.html.twig', array(
+            'list' => $list
+            ));
+
+    }
 }
