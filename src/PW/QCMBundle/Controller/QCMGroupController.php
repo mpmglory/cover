@@ -91,6 +91,17 @@ class QCMGroupController extends Controller
             ));
     }
 
+    public function deleteAction($id){
+
+        $em = $this->getDoctrine()->getManager();
+        $qcm  = $em->getRepository('PWQCMBundle:QCMGroup')->find($id);
+
+        $em->remove($qcm);
+        $em->flush();
+
+        return $this->redirectToRoute('pw_qcm_homepage');
+    }
+
     public function menuAction($id){
 
         $em = $this->getDoctrine()->getManager();
