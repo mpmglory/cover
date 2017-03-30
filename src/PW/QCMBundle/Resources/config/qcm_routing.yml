@@ -42,3 +42,17 @@ pw_qcm_delete:
         _controller: PWQCMBundle:QCM:delete
     requirements:
         id: \d+
+
+pw_qcm_api_get_all:
+    path:     /api/get_all
+    defaults:
+        _controller: PWQCMBundle:QCM:getAll
+    methods: [GET]
+    
+pw_qcm_api_get_one:
+    path:     /api/get_one/{id}
+    defaults:
+        _controller: PWQCMBundle:QCM:getOne
+    requirements:
+        id: \d+
+    methods: [GET]
