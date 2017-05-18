@@ -31,7 +31,10 @@ class ApiQCMController extends Controller{
             return new JsonResponse(['message' => 'QCM not found'], Response::HTTP_NOT_FOUND);
         }
   
-        return $qcm;
+        $view = View::create($qcm);
+        $view->setFormat('json');
+  
+        return $view;
         
     } 
     
@@ -44,7 +47,10 @@ class ApiQCMController extends Controller{
                         ->getRepository('PWQCMBundle:QCM')
                         ->findAll(); 
        
-        return $allQcm;
+        $view = View::create($allQcm);
+        $view->setFormat('json');
+  
+        return $view;
     }
         
 }

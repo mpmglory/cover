@@ -22,16 +22,19 @@ class ApiConcoursController extends Controller{
     */
     public function getConcoursAction($id, Request $request){
         
-        $qcm = $this->get('doctrine.orm.entity_manager')
+        $concours = $this->get('doctrine.orm.entity_manager')
                         ->getRepository('PWQCMBundle:Concours')
                         ->find($id);
 
-        if(empty($qcm)){
+        if(empty($concours)){
            
             return new JsonResponse(['message' => 'Concours not found'], Response::HTTP_NOT_FOUND);
         }
+        
+        $view = View::create($concours);
+        $view->setFormat('json');
   
-        return $qcm;
+        return $view;
         
     } 
     
@@ -40,11 +43,14 @@ class ApiConcoursController extends Controller{
     */
     public function getConcourssAction(Request $request){
         
-        $allQcm = $this->get('doctrine.orm.entity_manager')
+        $concours = $this->get('doctrine.orm.entity_manager')
                         ->getRepository('PWQCMBundle:Concours')
                         ->findAll(); 
        
-        return $allQcm;
+        $view = View::create($concours);
+        $view->setFormat('json');
+  
+        return $view;
     }
         
 }

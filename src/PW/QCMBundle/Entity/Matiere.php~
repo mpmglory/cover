@@ -43,14 +43,14 @@ class Matiere
     private $description;
 
     /**
-     * @ORM\ManyToOne(targetEntity="PW\QCMBundle\Entity\Image")
+     * @ORM\ManyToOne(targetEntity="PW\QCMBundle\Entity\Image", cascade={"persist", "remove"})
      * @ORM\JoinColumn(nullable=true)
      */
     private $image;
 
     /**
-     * @ORM\ManyToOne(targetEntity="PW\QCMBundle\Entity\Concours")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\ManyToOne(targetEntity="PW\QCMBundle\Entity\Concours", inversedBy="matieres")
+     * @ORM\JoinColumn(nullable=true)
      */
     private $concours;
 
@@ -62,128 +62,5 @@ class Matiere
     }
 
 
-    /**
-     * Get id
-     *
-     * @return integer 
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    /**
-     * Set date
-     *
-     * @param \DateTime $date
-     * @return Matiere
-     */
-    public function setDate($date)
-    {
-        $this->date = $date;
-
-        return $this;
-    }
-
-    /**
-     * Get date
-     *
-     * @return \DateTime 
-     */
-    public function getDate()
-    {
-        return $this->date;
-    }
-
-    /**
-     * Set nom
-     *
-     * @param string $nom
-     * @return Matiere
-     */
-    public function setNom($nom)
-    {
-        $this->nom = $nom;
-
-        return $this;
-    }
-
-    /**
-     * Get nom
-     *
-     * @return string 
-     */
-    public function getNom()
-    {
-        return $this->nom;
-    }
-
-    /**
-     * Set description
-     *
-     * @param string $description
-     * @return Matiere
-     */
-    public function setDescription($description)
-    {
-        $this->description = $description;
-
-        return $this;
-    }
-
-    /**
-     * Get description
-     *
-     * @return string 
-     */
-    public function getDescription()
-    {
-        return $this->description;
-    }
-
-    /**
-     * Set urlPhoto
-     *
-     * @param string $urlPhoto
-     * @return Matiere
-     */
-    public function setUrlPhoto($urlPhoto)
-    {
-        $this->urlPhoto = $urlPhoto;
-
-        return $this;
-    }
-
-    /**
-     * Get urlPhoto
-     *
-     * @return string 
-     */
-    public function getUrlPhoto()
-    {
-        return $this->urlPhoto;
-    }
-
-    /**
-     * Set concours
-     *
-     * @param \PW\QCMBundle\Entity\Concours $concours
-     * @return Matiere
-     */
-    public function setConcours(\PW\QCMBundle\Entity\Concours $concours)
-    {
-        $this->concours = $concours;
-
-        return $this;
-    }
-
-    /**
-     * Get concours
-     *
-     * @return \PW\QCMBundle\Entity\Concours 
-     */
-    public function getConcours()
-    {
-        return $this->concours;
-    }
+    
 }

@@ -30,8 +30,11 @@ class ApiMatiereController extends Controller{
            
             return new JsonResponse(['message' => 'Matiere not found'], Response::HTTP_NOT_FOUND);
         }
+        
+        $view = View::create($mat);
+        $view->setFormat('json');
   
-        return $mat;
+        return $view;
         
     } 
     
@@ -40,11 +43,14 @@ class ApiMatiereController extends Controller{
     */
     public function getMatieresAction(Request $request){
         
-        $mats = $this->get('doctrine.orm.entity_manager')
+        $mat = $this->get('doctrine.orm.entity_manager')
                         ->getRepository('PWQCMBundle:Matiere')
                         ->findAll(); 
        
-        return $mats;
+        $view = View::create($mat);
+        $view->setFormat('json');
+  
+        return $view;
     }
         
 }

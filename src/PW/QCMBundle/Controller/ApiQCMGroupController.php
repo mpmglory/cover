@@ -31,7 +31,10 @@ class ApiQCMGroupController extends Controller{
             return new JsonResponse(['message' => 'Qcmgroup not found'], Response::HTTP_NOT_FOUND);
         }
   
-        return $qcmgroup;
+        $view = View::create($qcmgroup);
+        $view->setFormat('json');
+  
+        return $view;
         
     } 
     
@@ -40,11 +43,14 @@ class ApiQCMGroupController extends Controller{
     */
     public function getQcmgroupsAction(Request $request){
         
-        $allQcmgr = $this->get('doctrine.orm.entity_manager')
+        $qcmgroup = $this->get('doctrine.orm.entity_manager')
                         ->getRepository('PWQCMBundle:QCMGroup')
                         ->findAll(); 
        
-        return $allQcmgr;
+        $view = View::create($qcmgroup);
+        $view->setFormat('json');
+  
+        return $view;
     }
         
 }

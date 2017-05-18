@@ -3,6 +3,7 @@
 namespace PW\QCMBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Concours
@@ -47,17 +48,23 @@ class Concours
      * @ORM\JoinColumn(nullable=true)
      */
     private $image;
+    
+    /**
+     * @ORM\OneToMany(targetEntity="PW\QCMBundle\Entity\Matiere", mappedBy="concours")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $matieres;
 
     public function __construct()
     {
         $this->date = new \Datetime();
+        $this->matieres = new ArrayCollection();
     }
-
 
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -68,6 +75,7 @@ class Concours
      * Set date
      *
      * @param \DateTime $date
+     *
      * @return Concours
      */
     public function setDate($date)
@@ -80,7 +88,7 @@ class Concours
     /**
      * Get date
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getDate()
     {
@@ -91,6 +99,7 @@ class Concours
      * Set nom
      *
      * @param string $nom
+     *
      * @return Concours
      */
     public function setNom($nom)
@@ -103,7 +112,7 @@ class Concours
     /**
      * Get nom
      *
-     * @return string 
+     * @return string
      */
     public function getNom()
     {
@@ -114,6 +123,7 @@ class Concours
      * Set description
      *
      * @param string $description
+     *
      * @return Concours
      */
     public function setDescription($description)
@@ -126,7 +136,7 @@ class Concours
     /**
      * Get description
      *
-     * @return string 
+     * @return string
      */
     public function getDescription()
     {
@@ -134,32 +144,10 @@ class Concours
     }
 
     /**
-     * Set urlPhoto
-     *
-     * @param string $urlPhoto
-     * @return Concours
-     */
-    public function setUrlPhoto($urlPhoto)
-    {
-        $this->urlPhoto = $urlPhoto;
-
-        return $this;
-    }
-
-    /**
-     * Get urlPhoto
-     *
-     * @return string 
-     */
-    public function getUrlPhoto()
-    {
-        return $this->urlPhoto;
-    }
-
-    /**
      * Set image
      *
      * @param \PW\QCMBundle\Entity\Image $image
+     *
      * @return Concours
      */
     public function setImage(\PW\QCMBundle\Entity\Image $image = null)
@@ -172,10 +160,46 @@ class Concours
     /**
      * Get image
      *
-     * @return \PW\QCMBundle\Entity\Image 
+     * @return \PW\QCMBundle\Entity\Image
      */
     public function getImage()
     {
         return $this->image;
+    }
+
+    /**
+     * Add matiere
+     *
+     * @param \PW\QCMBundle\Entity\Matiere $matiere
+     *
+     * @return Concours
+     */
+    public function addMatiere(\PW\QCMBundle\Entity\Matiere $matiere)
+    {
+        $this->matieres[] = $matiere;
+        
+        $matiere->setConcours($this);
+
+        return $this;
+    }
+
+    /**
+     * Remove matiere
+     *
+     * @param \PW\QCMBundle\Entity\Matiere $matiere
+     */
+    public function removeMatiere(\PW\QCMBundle\Entity\Matiere $matiere)
+    {
+        $this->matieres->removeElement($matiere);
+    }
+
+    /**
+     * Get matieres
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getMatieres()
+    {
+        return $this->matieres;
     }
 }
