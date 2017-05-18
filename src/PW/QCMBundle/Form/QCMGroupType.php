@@ -21,11 +21,10 @@ class QCMGroupType extends AbstractType
                     'property' => 'nom',
                     'expanded' => false,
                     'multiple' => false,
-                    'query_builder' => function(MatiereRepository $repo){
-                        return $repo->getTheseConcoursMatiere();
-                    }
                     ))
-                ->add('image',   new ImageType())
+                ->add('image',   new ImageType(), array(
+                    'required' => false
+                ))
                 ->add('submit',     'submit')
                 ;
     }

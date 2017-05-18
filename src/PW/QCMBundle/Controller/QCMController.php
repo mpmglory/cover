@@ -5,12 +5,16 @@ namespace PW\QCMBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use PW\QCMBundle\Entity\QCM;
 use PW\QCMBundle\Form\QCMType;
 use PW\QCMBundle\Entity\QCMGroup;
 use PW\QCMBundle\Form\QCMGroupType;
 use PW\QCMBundle\Form\ImageType;
+use JMS\Serializer\Serializer;
+use JMS\Serializer\SerializerBuilder;
+use JMS\Serializer\SerializationContext;
 
 class QCMController extends Controller
 {
@@ -177,4 +181,6 @@ class QCMController extends Controller
 
         return $this->redirectToRoute('pw_qcm_homepage');
     }
+
+    
 }

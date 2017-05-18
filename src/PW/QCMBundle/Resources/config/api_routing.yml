@@ -1,0 +1,55 @@
+api_qcm:
+    path:     /qcms
+    defaults:
+        _controller: PWQCMBundle:ApiQCM:getQcms
+    methods: [GET]
+    
+api_qcms:
+    path:     /qcm/{id}
+    defaults:
+        _controller: PWQCMBundle:ApiQCM:getQcm
+    requirements:
+        id: \d+
+    methods: [GET]
+    
+api_concourss:
+    path:     /concourss
+    defaults:
+        _controller: PWQCMBundle:ApiConcours:getConcourss
+    methods: [GET]
+    
+api_concours:
+    path:     /concours/{id}
+    defaults:
+        _controller: PWQCMBundle:ApiConcours:getConcours
+    requirements:
+        id: \d+
+    methods: [GET]
+    
+api_matieres:
+    path:     /matieres
+    defaults:
+        _controller: PWQCMBundle:ApiMatiere:getMatieres
+    methods: [GET]
+    
+api_matiere:
+    path:     /matiere/{id}
+    defaults:
+        _controller: PWQCMBundle:ApiMatiere:getMatiere
+    requirements:
+        id: \d+
+    methods: [GET]
+    
+api_qcmgroups:
+    path:     /qcmgroups
+    defaults:
+        _controller: PWQCMBundle:ApiQCMGroup:getQcmgroups
+    methods: [GET]
+    
+api_qcmgroup:
+    path:     /qcmgroup/{id}
+    defaults:
+        _controller: PWQCMBundle:ApiQCMGroup:getQcmgroup
+    requirements:
+        id: \d+
+    methods: [GET]
