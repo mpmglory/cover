@@ -12,6 +12,9 @@ use PW\QCMBundle\Form\QCMType;
 use PW\QCMBundle\Entity\QCMGroup;
 use PW\QCMBundle\Form\QCMGroupType;
 use PW\QCMBundle\Form\ImageType;
+use JMS\Serializer\Serializer;
+use JMS\Serializer\SerializerBuilder;
+use JMS\Serializer\SerializationContext;
 
 class QCMController extends Controller
 {
@@ -178,64 +181,6 @@ class QCMController extends Controller
 
         return $this->redirectToRoute('pw_qcm_homepage');
     }
-    
 
-    public function getAllAction(Request $request){
-        
-        $allQcm = $this->get('doctrine.orm.entity_manager')
-                        ->getRepository('PWQCMBundle:QCM')
-                        ->findAll(); 
-        
-        $formatted = [];
-        
-        foreach($allQcm as $qcm){
-            
-            $formatted[] = [
-                'id' => $qcm->getId(),
-                'date' => $qcm->getDate(),
-                'validated' => $qcm->getValidated(),
-                'enonce' => $qcm->getEnonce(),
-                'propoA' => $qcm->getPropoA(),
-                'propoB' => $qcm->getPropoB(),
-                'propoC' => $qcm->getPropoC(),
-                'propoD' => $qcm->getPropoD(),
-                'propoE' => $qcm->getPropoE(),
-                'reponse' => $qcm->getReponse(),
-                'explication' => $qcm->getExplication()
-            ];
-        }
-        
-        return new JsonResponse($formatted);
-    }
-    
-   public function getOneAction($id, Request $request){
-        
-        $qcm = $this->get('doctrine.orm.entity_manager')
-                        ->getRepository('PWQCMBundle:QCM')
-                        ->find($id); 
-        
-        $formatted = [
-            'id' => $qcm->getId(),
-            'date' => $qcm->getDate(),
-            'validated' => $qcm->getValidated(),
-            'enonce' => $qcm->getEnonce(),
-            'propoA' => $qcm->getPropoA(),
-            'propoB' => $qcm->getPropoB(),
-            'propoC' => $qcm->getPropoC(),
-            'propoD' => $qcm->getPropoD(),
-            'propoE' => $qcm->getPropoE(),
-            'reponse' => $qcm->getReponse(),
-            'explication' => $qcm->getExplication()
-        ];
-       
-       if(empty($qcm)){
-           
-            return new JsonResponse(['message' => 'QCM not found'], Response::HTTP_NOT_FOUND);
-        }    
-        
-        return new JsonResponse($formatted);
-    }
-    
-    
     
 }

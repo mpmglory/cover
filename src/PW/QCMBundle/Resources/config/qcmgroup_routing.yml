@@ -23,7 +23,7 @@ pw_qcmgroup_edit:
     requirements:
         id: \d+
 
-pw__qcmgroup_delete:
+pw_qcmgroup_delete:
     path:     /delete/{id}
     defaults:
         _controller: PWQCMBundle:QCMGroup:delete

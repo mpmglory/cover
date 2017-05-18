@@ -18,3 +18,7 @@ pwmatiere:
 pwconcours:
     resource: "@PWQCMBundle/Resources/config/concours_routing.yml"
     prefix:   /concours
+    
+pwapi:
+    resource: "@PWQCMBundle/Resources/config/api_routing.yml"
+    prefix:   /api
